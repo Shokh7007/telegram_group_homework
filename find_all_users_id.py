@@ -12,7 +12,8 @@ def find_all_users_id(data: dict)->list:
     z=[]
     a=0
     for i in data["messages"]:
-        z.append(i["id"])
+        if i["type"]=="message":
+            z.append(i["from_id"])
     return z
 
 f=open("data/result.json","r",encoding='utf8')
