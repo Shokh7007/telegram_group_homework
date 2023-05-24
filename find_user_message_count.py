@@ -1,5 +1,4 @@
 from read_data import read_data
-from find_all_users_id import find_all_users_id
 
 def find_user_message_count(data: dict, users_id: str)->dict:
     """
@@ -11,4 +10,12 @@ def find_user_message_count(data: dict, users_id: str)->dict:
     Returns:
         dict: Number of messages of the users
     """
-    return
+    z=0
+    for i in data["messages"]:
+        if i["type"]=="message":
+            if i["from_id"]==users_id:
+                z+=1
+    return z
+f=open("data/result.json","r",encoding='utf8')
+x=f.read()
+print(find_user_message_count(read_data(x),"user86775091"))
