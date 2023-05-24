@@ -11,8 +11,8 @@ def find_all_users_name(data: dict)->list:
     """
     z=[]
     for i in data["messages"]:
-        if i["type"]=="service":
-            z.append(i["actor"])
+        if i["type"]=="message":
+            z.append(i["from"])
     return z
 f=open("data/result.json","r",encoding='utf8')
 x=f.read()
